@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>500</height>
+    <width>850</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,29 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>25</x>
+      <x>34</x>
       <y>15</y>
-      <width>450</width>
-      <height>400</height>
+      <width>781</width>
+      <height>501</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>560</y>
+      <width>421</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Изменить или добавить запись</string>
     </property>
    </widget>
   </widget>
@@ -30,7 +48,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>500</width>
+     <width>850</width>
      <height>21</height>
     </rect>
    </property>
