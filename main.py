@@ -9,6 +9,48 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('main.ui', self)
         self.table()
+        self.pushButton.clicked.connect(self.new_window)
+
+    def table(self):
+        con = sqlite3.connect('coffee.db')
+
+        cur = con.cursor()
+
+        result = cur.execute(f"""select * from infa_cof""").fetchall()
+
+        con.close()
+
+        title = ['ID', 'Название сорта', 'Степень обжарки',
+                 'Молотый/В зернах', 'Описание вкуса', 'Цена',
+                 'Объем упаковки']
+
+        self.tableWidget.setColumnCount(len(title))
+        self.tableWidget.setHorizontalHeaderLabels(title)
+        self.tableWidget.setRowCount(0)
+
+        index = 0
+        for row in result:
+            self.tableWidget.setRowCount(
+                self.tableWidget.rowCount() + 1)
+            hh = 0
+            for elem in row:
+                self.tableWidget.setItem(
+                    index, hh, QTableWidgetItem(str(elem)))
+                hh += 1
+            index += 1
+
+        self.tableWidget.resizeColumnsToContents()
+
+    def new_window(self):
+        a = self.Edition()
+        a.show()
+        self.close()
+
+class Edition(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('main.ui', self)
+        self.table()
 
     def table(self):
         con = sqlite3.connect('coffee.db')
